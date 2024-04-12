@@ -5,7 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./App.jsx",
     "./assets/FuncComps/FCLogin.jsx",
+    "./assets/FuncComps/FCRegister.jsx",
   ],
+  
   theme: {
     extend: {},
   },

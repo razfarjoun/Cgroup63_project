@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-function RegistrationPage2() {
+function RegistrationPage3() {
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission
     };
-
+ 
     return (
         <>
 
@@ -35,35 +35,23 @@ function RegistrationPage2() {
                             </label>
                             <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} className="steps ">
                                 <div style={{ marginRight: '1rem' }} data-content="✓" className="step step-primary">General</div>
-                                <div style={{ marginRight: '1rem' }} className="step  step-primary">More<br></br>details</div>
-                                <div style={{ marginRight: '1rem' }} className="step" >Signature</div>
+                                <div style={{ marginRight: '1rem' }}  data-content="✓" className="step  step-primary">More<br></br>details</div>
+                                <div style={{ marginRight: '1rem' }} className="step step-primary" >Signature</div>
                             </div>
                             <br /><br />
-                            <div className="form-control">
-                                <label className="input input-bordered flex items-center gap-2">
-                                    <input type="text" className="grow" placeholder="Parctice Area" />
-                                </label>
-                            </div>
+                           <b><h1 style={{fontSize:'15px'}}>Set a signature</h1></b>
+                            <span style={{fontSize:'12px'}}>set your signature in the rectangle below</span>
+                            <br></br>
+                            <br></br>
+                       
+   
+   
                             <br />
-                            <div className="form-control">
-                                <label className="input input-bordered flex items-center gap-2">
-                                    <input type="text" className="grow" placeholder="Job" />
-                                </label>
-                            </div>
-                            <br />
-                            <div className="form-control">
-                                <label className="label cursor-pointer">
-                                    <span className="label-text">Employee</span>
-                                    <input type="checkbox" defaultChecked className="checkbox checkbox-primary" />
-                                </label>
-                            </div>
-                            <br />
-
                             <div className="form-control mt-6">
-                                <button type="submit" onClick={() => window.location.href = '/Register3'} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-primary">Continue</button>
+                                <button type="submit" onClick={() => window.location.href = '/register3'} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Save</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button type="button" onClick={() => window.location.href = '/register'} className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
+                                <button type="button" onClick={() => window.location.href = '/register2'} className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
                             </div>
                         </form>
                     </div>
@@ -73,4 +61,4 @@ function RegistrationPage2() {
     );
 }
 
-export default RegistrationPage2;
+export default RegistrationPage3;
