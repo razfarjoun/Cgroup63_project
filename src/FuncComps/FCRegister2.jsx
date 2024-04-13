@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RegistrationPage2() {
+    const navigate = useNavigate();
 
 
     const handleSubmit = (e) => {
@@ -41,7 +43,12 @@ function RegistrationPage2() {
                             <br /><br />
                             <div className="form-control">
                                 <label className="input input-bordered flex items-center gap-2">
-                                    <input type="text" className="grow" placeholder="Parctice Area" />
+                                    <input 
+                                    type="text" 
+                                    className="grow" 
+                                    placeholder="Parctice Area"
+                                    required
+                                     />
                                 </label>
                             </div>
                             <br />
@@ -63,7 +70,7 @@ function RegistrationPage2() {
                                 <button type="submit" onClick={() => window.location.href = '/Register3'} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg  btn-primary">Continue</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button type="button" onClick={() => window.location.href = '/register'} className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
+                                <button type="button" onClick={() => navigate('/Register') } className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
                             </div>
                         </form>
                     </div>

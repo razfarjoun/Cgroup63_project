@@ -48,7 +48,7 @@ function RegistrationPage3() {
    
                             <br />
                             <div className="form-control mt-6">
-                                <button type="submit" onClick={() => window.location.href = '/register3'} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Save</button>
+                                <button type="submit" onClick={() => window.location.href = '/'} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Save</button>
                             </div>
                             <div className="form-control mt-6">
                                 <button type="button" onClick={() => window.location.href = '/register2'} className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>

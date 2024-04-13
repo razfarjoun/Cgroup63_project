@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
-function RegistrationPage() {
-   
+function RegistrationPage(props) {
+    const navigate = useNavigate();
+    const Users = props.userList; //לוקחת את היוזרים שנרשמו ועברו מהאבא אלי 
+    console.log(Users);
+    
     //input
     const [user, setUsers] = useState({
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        phone: '',
-        transcription: '',
+        username: Users.length ? Users[0].username : '',
+        email: Users.length ? Users[0].email : '',
+        password: Users.length ? Users[0].password : '',
+        confirmPassword: Users.length ? Users[0].confirmPassword : '',
+        phone: Users.length ? Users[0].phone : '',
+        transcription: Users.length ? Users[0].transcription : '',
     });
-
+    
+    console.log(user);
 
     //בדיקת שגיאות
     const [errors, setErrors] = useState({
@@ -118,12 +123,35 @@ function RegistrationPage() {
             }));
         }
     };
-    console.log(user);
-    console.log(errors);
+   // console.log(user);
+   // console.log(errors);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission
+        let validations = Object.values(errors);
+        let userFields = Object.values(user);
+        if (validations.some((value) => value !== '')) {
+            console.log('Entering an invalid value in one of the fields');
+        } else if (userFields.some((value) => value === '')) {                   
+            console.log('You need to fill in all the fields ');
+        } else {
+            props.sendtoParent(user);
+          //  clearAllFileds();                   
+            navigate('/register2');
+        }
+    };
+
+
+    const clearAllFileds = () => {
+        setUsers({
+            username: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            phone: '',
+            transcription: '',
+        });
     };
 
     return (
@@ -278,10 +306,10 @@ function RegistrationPage() {
                                 )}
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={() => window.location.href = '/register2'} type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Continue</button>
+                                <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary">Continue</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button type="button" className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
+                                <button onClick={() => navigate('/') } type="button" className="btn  btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-outline btn-primary">Back</button>
                             </div>
                         </form>
                     </div>

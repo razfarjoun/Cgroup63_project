@@ -10,19 +10,25 @@ import RegistrationPage3 from './FuncComps/FCRegister3'
 
 function App() {
 
+  const [usersList, setUsersList] = useState([]);
+
+  const getUserFromChild = (user) => {
+    setUsersList(prevUsersList => [...prevUsersList, user]);  //מקבלת את היוזר מהילד ומכניסה אותו לרשימה
+  }
+  console.log(usersList);
 
   return (
 
-<BrowserRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} /> 
-        <Route path="/Register" element={<RegistrationPage />} />
-        <Route path="/Register2" element={<RegistrationPage2/>} />
-        <Route path="/Register3" element={<RegistrationPage3/>} />
+        <Route path="/" element={<Login  userList={usersList}/>} />
+        <Route path="/Register" element={<RegistrationPage userList={usersList} sendtoParent={getUserFromChild} />} />
+        <Route path="/Register2" element={<RegistrationPage2 />} />
+        <Route path="/Register3" element={<RegistrationPage3 />} />
 
       </Routes>
     </BrowserRouter>
-  
+
 
 
   )
